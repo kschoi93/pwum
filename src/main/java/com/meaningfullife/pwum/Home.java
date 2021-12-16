@@ -1,16 +1,20 @@
 package com.meaningfullife.pwum;
 
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class Home {
-  @GetMapping("/")
+  @GetMapping("/home")
   public String Home(){
+    return "/home";
+  }
+
+  @GetMapping("/")
+  public String returnMapping(@RequestParam(value = "code") String code) {
+    System.out.println(code);
     return "/home";
   }
 }

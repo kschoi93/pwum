@@ -3,10 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script>
+        Kakao.init('25ebc2a101168be0e8b1b20d9ad9a70f');
+        Kakao.isInitialized();
+
+        console.log(Kakao.isInitialized());
+        function kakaoLogin(){
+        $.ajax({
+          url: '/api/kakao/authorization',
+          type: 'get',
+          success: function(res){
+            location.href = res;
+          }
+        })
+        }
+
+        $(document).ready(function(){
+        //console.log('${code}');
+        });
+    </script>
 </head>
 <body>
-  <form action="" method="get">
-    <input type="submit" value="클릭">
-  </form>
+    <input type="button" value="클릭" onclick="kakaoLogin();">
 </body>
+
 </html>
